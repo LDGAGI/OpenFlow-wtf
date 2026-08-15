@@ -1,0 +1,49 @@
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 160ms ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.directoryDialog {
+  display: grid;
+  gap: 18px;
+  width: min(100%, 420px);
+  padding: 26px;
+  border: 1px solid #353a43;
+  border-radius: 14px;
+  background: #121418;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+}
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(216, 255, 87, 0.12);
+  color: var(--accent);
+}
+.directoryDialog h2 {
+  margin: 0;
+  font-size: 19px;
+}
+.directoryDialog p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}

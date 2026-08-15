@@ -1,0 +1,305 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.dialog {
+  display: grid;
+  width: min(100%, 560px);
+  max-height: min(88vh, 720px);
+  overflow: hidden;
+  border: 1px solid #353a43;
+  border-radius: 8px;
+  background: #121418;
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.52);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 22px 16px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.iconButton {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.providerSwitch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin: 0 22px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #0e1013;
+}
+
+.providerSwitch button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 580;
+  cursor: pointer;
+}
+
+.providerSwitch button:hover {
+  color: var(--text);
+}
+
+.providerSwitch .providerActive {
+  background: var(--surface-3);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px #3b424c;
+}
+
+.form {
+  display: grid;
+  gap: 13px;
+  padding: 18px 22px 16px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field > span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.field > input,
+.secretInput {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  outline: 0;
+  background: #0f1115;
+  color: var(--text);
+  font-size: 13px;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.field > input {
+  padding: 0 12px;
+}
+
+.secretInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 5px 0 11px;
+  color: var(--muted);
+}
+
+.secretInput input {
+  min-width: 0;
+  height: 38px;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  caret-color: var(--text);
+  font-size: 13px;
+}
+
+.secretInput input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.field > input:focus,
+.secretInput:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(216, 255, 87, 0.1);
+}
+
+.kimiHint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.providerDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(216, 255, 87, 0.1);
+}
+
+.fetchButton,
+.cancelButton,
+.saveButton,
+.clearButton {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: 620;
+  cursor: pointer;
+}
+
+.fetchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.fetchButton:hover:not(:disabled),
+.cancelButton:hover {
+  border-color: #505864;
+}
+
+.manualRow {
+  display: flex;
+  gap: 8px;
+}
+
+.manualRow input {
+  min-width: 0;
+  min-height: 40px;
+  flex: 1;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 12px;
+  outline: 0;
+  background: #0f1115;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.manualRow input:focus { border-color: var(--accent); }
+
+.manualRow button {
+  min-width: 68px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-3);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 620;
+}
+
+.fetchButton:disabled,
+.saveButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.spinner {
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error {
+  margin: -2px 0 0;
+  color: #ff8d8d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.modelsSection {
+  min-height: 0;
+  padding: 0 22px 16px;
+  overflow: hidden;
+}
+
+.skeletonList {
+  display: grid;
+  gap: 7px;
+}
+
+.skeletonList span {
+  height: 40px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #191c21 25%, #23272e 50%, #191c21 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 9px;
+  padding: 16px 22px 20px;
+}
+
+.cancelButton,
+.clearButton {
+  background: transparent;
+  color: var(--text);
+}
+
+.clearButton {
+  border-color: transparent;
+  padding: 0;
+  color: var(--danger);
+}
+
+.saveButton {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+@media (max-width: 600px) {
+  .backdrop { padding: 10px; }
+  .dialog { max-height: 94vh; }
+  .header { padding: 18px 16px 14px; }
+  .providerSwitch { margin: 0 16px; }
+  .form, .modelsSection { padding-left: 16px; padding-right: 16px; }
+  .actions { padding: 14px 16px 16px; }
+}

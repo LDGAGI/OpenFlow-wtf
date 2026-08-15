@@ -1,0 +1,193 @@
+.group {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.settingsMenu {
+  width: 340px;
+  max-height: min(520px, calc(100svh - 80px));
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.seedMenu {
+  width: 170px;
+}
+
+.negativeMenu {
+  width: 250px;
+}
+
+.menuInput {
+  width: 100%;
+  height: 32px;
+  border: 1px solid #30363e;
+  border-radius: var(--radius-sm);
+  outline: 0;
+  padding: 0 8px;
+  background: #1b1f24;
+  color: var(--text);
+  font-size: var(--text-xs);
+}
+
+.menuInput:focus {
+  border-color: #626b76;
+}
+
+.settingsSection {
+  padding: 9px 0;
+  border-bottom: 1px solid #272c32;
+}
+
+.settingsSection:first-child {
+  padding-top: 0;
+}
+
+.settingsSection:last-of-type {
+  border-bottom: 0;
+}
+
+.settingsLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: #8f969f;
+  font-size: 9px;
+}
+
+.settingsLabel svg {
+  color: #717984;
+}
+
+.segmentedOptions,
+.settingsOptions,
+.ratioOptions,
+.durationOptions {
+  display: grid;
+  gap: 5px;
+}
+
+.segmentedOptions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.settingsOptions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ratioOptions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.durationOptions {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.segmentedOptions button,
+.settingsOptions button,
+.ratioOptions button,
+.durationOptions button {
+  display: flex;
+  min-width: 0;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #2c3239;
+  border-radius: var(--radius-sm);
+  background: #1b1f24;
+  color: #9097a0;
+  font-size: 9px;
+  cursor: pointer;
+  transition: border-color var(--ease), background var(--ease), color var(--ease);
+}
+
+.ratioOptions button {
+  height: 42px;
+  flex-direction: column;
+}
+
+.segmentedOptions button:hover,
+.settingsOptions button:hover,
+.ratioOptions button:hover,
+.durationOptions button:hover {
+  border-color: #4d555f;
+  color: var(--text);
+}
+
+.segmentedOptions button.optionActive,
+.settingsOptions button.optionActive,
+.ratioOptions button.optionActive,
+.durationOptions button.optionActive {
+  border-color: #687420;
+  background: #252b20;
+  color: #d4dc9b;
+}
+
+.settingsOptions button:disabled {
+  cursor: default;
+}
+
+.settingsOptions button:disabled:hover {
+  border-color: #687420;
+  color: #d4dc9b;
+}
+
+.ratioShape {
+  display: block;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.ratioShape[data-ratio="21:9"] {
+  width: 24px;
+  height: 10px;
+}
+
+.ratioShape[data-ratio="16:9"],
+.ratioShape[data-ratio="4:3"] {
+  width: 21px;
+  height: 13px;
+}
+
+.ratioShape[data-ratio="1:1"] {
+  width: 16px;
+  height: 16px;
+}
+
+.ratioShape[data-ratio="3:4"] {
+  width: 13px;
+  height: 18px;
+}
+
+.ratioShape[data-ratio="9:16"] {
+  width: 10px;
+  height: 22px;
+}
+
+.audioSetting {
+  display: flex;
+  height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0 0;
+  color: #b5bbc3;
+  font-size: 10px;
+}
+
+.audioSetting > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.audioSetting input {
+  width: 30px;
+  height: 16px;
+  accent-color: var(--accent);
+}

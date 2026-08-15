@@ -1,0 +1,50 @@
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 12;
+  width: 9px;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.handle[data-axis="y"] {
+  top: auto;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: 9px;
+  cursor: row-resize;
+}
+
+.handle.inFlow[data-axis="y"] {
+  position: relative;
+  inset: auto;
+}
+
+.handle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: transparent;
+  transition: background var(--ease);
+}
+
+.handle:hover::after {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.handle[data-axis="y"]::after {
+  top: 50%;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: auto;
+  height: 2px;
+  transform: translateY(-50%);
+}

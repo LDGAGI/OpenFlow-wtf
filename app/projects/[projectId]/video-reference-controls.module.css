@@ -1,0 +1,81 @@
+.hiddenFileInput {
+  display: none;
+}
+
+.referenceBar {
+  min-width: 0;
+  padding: 0 2px 8px;
+}
+
+.referenceError {
+  margin: 4px 2px 0;
+  color: var(--danger);
+  font-size: var(--text-xs);
+}
+
+.referenceShelf {
+  display: flex;
+  min-width: 0;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.shelfWithItems {
+  overflow-y: visible;
+  padding: 10px;
+}
+
+.referenceShelf::-webkit-scrollbar {
+  display: none;
+}
+
+.referenceTile {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  overflow: hidden;
+  border: 1px solid #30353d;
+  border-radius: var(--radius-sm);
+  background: #171a1f;
+  color: var(--muted);
+  transition: border-color var(--ease), background var(--ease), transform var(--ease);
+}
+
+.referenceTile:hover {
+  border-color: #4b525d;
+  background: #1d2127;
+}
+
+.referenceTile:active {
+  transform: translateY(1px);
+}
+
+.referenceAdd:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.referenceAdd {
+  display: grid;
+  height: 64px;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  border-style: dashed;
+  padding: 7px;
+  cursor: pointer;
+}
+
+/* 计数器：弱化层级，仅作轻提示 */
+.referenceAdd small {
+  color: #4a4f58;
+  font-size: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.referenceAdd:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}

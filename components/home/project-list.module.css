@@ -1,0 +1,272 @@
+.projectSection {
+  animation: fadeIn 260ms ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.pageHeader {
+  margin-bottom: 28px;
+}
+.pageHeader .eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+.pageHeader h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+}
+.pageHeader .subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px 16px;
+}
+.thumb {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  background: #191c20;
+  color: #454c54;
+  transition: background 150ms ease;
+}
+.projectCard:hover .thumb {
+  background: #20242a;
+}
+.cardMeta {
+  margin-top: 10px;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+}
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+.cardTitle {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 150ms ease;
+}
+.cardTitle:hover {
+  color: var(--accent);
+}
+.cardEdit {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 150ms ease;
+}
+.projectCard:hover .cardEdit {
+  opacity: 1;
+}
+.cardEdit:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+}
+.cardDelete:hover {
+  background: rgba(255, 107, 107, 0.14);
+  color: var(--danger);
+}
+
+.createCard {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.createCard:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.createThumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px dashed #2c3138;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--muted);
+  transition: all 150ms ease;
+}
+.createThumb strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+.createCard:hover .createThumb {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+.cardCaption {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  min-height: 26px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 160ms ease;
+}
+.projectDialog {
+  width: min(100%, 420px);
+  border: 1px solid #353a43;
+  border-radius: 14px;
+  background: #121418;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+}
+.projectDialog form {
+  display: grid;
+  gap: 22px;
+  padding: 26px;
+}
+.projectDialog h2 {
+  margin: 0;
+  font-size: 19px;
+}
+.projectDialog p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.projectDialog label {
+  display: grid;
+  gap: 8px;
+}
+.projectDialog label span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dirPicker {
+  border: 1px dashed #2c3138;
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.dirPicker p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.dirPicker p.error {
+  color: var(--danger);
+}
+.dirPrompt .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dirConnected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 12px;
+}
+.dirConnected svg {
+  flex: none;
+  color: var(--accent);
+}
+.dirConnected span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dirButton {
+  flex: none;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dirButton:hover {
+  color: var(--text);
+}
+.dirUnsupported {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.deleteDialogBody {
+  display: grid;
+  gap: 22px;
+  padding: 26px;
+}
+.deleteButton {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #3d0c0c;
+}
+.deleteButton:hover {
+  border-color: var(--danger);
+  background: var(--danger);
+  filter: brightness(1.1);
+}
+@media (max-width: 560px) {
+  .pageHeader h1 { font-size: 26px; }
+  .projectGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .cardEdit { opacity: 1; }
+}

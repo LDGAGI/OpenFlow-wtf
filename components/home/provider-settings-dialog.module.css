@@ -1,0 +1,208 @@
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 160ms ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.settingsDialog {
+  display: grid;
+  gap: 18px;
+  width: min(100%, 440px);
+  padding: 26px;
+  border: 1px solid #353a43;
+  border-radius: 14px;
+  background: #121418;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+}
+.settingsDialog h2 {
+  margin: 0;
+  font-size: 19px;
+}
+.settingsDialog p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.protocolGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.protocolCard {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.protocolCard input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.protocolCard strong {
+  font-size: 12px;
+  font-weight: 620;
+}
+.protocolCard small {
+  color: var(--muted);
+  font-size: 10px;
+}
+.protocolCard:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.protocolActive {
+  border-color: var(--accent);
+  background: rgba(216, 255, 87, 0.06);
+}
+.fieldGroup {
+  display: grid;
+  gap: 8px;
+}
+.fieldGroup > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.modelRow {
+  display: flex;
+  gap: 10px;
+}
+.modelRow .field {
+  flex: 1;
+  min-width: 0;
+}
+.modelRow button {
+  flex: none;
+  white-space: nowrap;
+}
+.dialogActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.actionsSpacer {
+  flex: 1;
+}
+.clearButton {
+  color: var(--danger);
+}
+
+.mediaDialog {
+  width: min(100%, 680px);
+  max-height: min(88vh, 820px);
+  overflow: auto;
+}
+
+.connectionTabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.connectionTabs::-webkit-scrollbar { display: none; }
+
+.connectionTabs button {
+  min-height: 34px;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 0 11px;
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.connectionTabs button:hover { border-color: #454b55; color: var(--text); }
+
+.connectionTabs .connectionActive {
+  border-color: var(--accent);
+  background: rgb(216 255 87 / 7%);
+  color: var(--text);
+}
+
+.connectionTabs .addConnection { width: 34px; padding: 0; color: var(--text); font-size: 18px; }
+
+.dialogHeading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+
+.dialogClose {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.dialogClose:hover { background: var(--surface-2); color: var(--text); }
+
+.imageDialog { width: min(100%, 620px); gap: 16px; }
+.imageDialog :global(.field) { min-height: 42px; }
+
+.verifyNotice { margin: -5px 0 0 !important; color: #caa35c !important; font-size: 10px !important; }
+
+.bindingList {
+  display: grid;
+  gap: 8px;
+}
+
+.bindingItem {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) minmax(150px, 0.8fr) minmax(150px, 0.8fr);
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #101216;
+}
+
+.bindingItem > strong {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.advancedGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.advancedManual { grid-column: 1 / -1; }
+
+@media (max-width: 620px) {
+  .advancedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dialogBackdrop { padding: 10px; }
+  .imageDialog { max-height: 94dvh; padding: 20px; }
+  .dialogActions { flex-wrap: wrap; }
+  .clearButton { order: 3; }
+  .bindingItem { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,119 @@
+.root {
+  position: relative;
+  min-width: 0;
+}
+
+/* 触发器对齐全局 .field 外观 */
+.trigger {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-md);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.trigger:hover {
+  border-color: #4a515c;
+}
+
+.triggerOpen,
+.trigger:focus-visible {
+  border-color: #68707c;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
+.trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.triggerLabel {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trigger > svg {
+  flex: none;
+  color: #6f7680;
+  transition: transform var(--ease);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* 弹出层沿用 ui/menu 的深色菜单语言 */
+.menu {
+  position: fixed;
+  z-index: 30;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid #333941;
+  border-radius: var(--radius-md);
+  padding: 6px;
+  background: #15181c;
+  box-shadow: var(--shadow-menu);
+  animation: selectMenuIn 140ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  height: 32px;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 0 9px;
+  background: transparent;
+  color: #b9bec6;
+  font-size: var(--text-xs);
+  font-weight: 550;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease);
+}
+
+.option:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.optionActive {
+  background: #252b20;
+  color: #d4dc9b;
+}
+
+.optionActive:hover {
+  background: #252b20;
+  color: #d4dc9b;
+}
+
+.optionLabel {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes selectMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}

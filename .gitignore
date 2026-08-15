@@ -1,0 +1,17 @@
+node_modules/
+.next/
+data/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.pem
+*.key
+coverage/
+*.tsbuildinfo

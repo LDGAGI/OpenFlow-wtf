@@ -1,0 +1,147 @@
+.workbench {
+  height: 100svh;
+  min-width: 1040px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.grid {
+  display: grid;
+  height: 100svh;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.creator {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: 72px minmax(0, 1fr) auto;
+}
+
+.modeTabs {
+  display: flex;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  background: var(--surface);
+}
+
+.modeTabs button {
+  display: flex;
+  height: 28px;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 14px;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--text-xs);
+  font-weight: 550;
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease);
+}
+
+.modeTabs button:hover {
+  color: var(--text);
+}
+
+.modeTabs button.active {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.modeTabs button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.creatorHeading {
+  display: grid;
+  min-width: 0;
+  height: 72px;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  padding: 0 28px;
+}
+
+.creatorHeading h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.headingSide {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: end;
+}
+
+.missingProject {
+  display: grid;
+  min-height: 100svh;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.missingProject h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.missingProject p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 600px) {
+  .workbench {
+    min-width: 0;
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .creator {
+    height: 100svh;
+    overflow-y: auto;
+    grid-template-rows: 64px minmax(260px, 1fr) auto;
+  }
+
+  .modeTabs button {
+    padding: 0 8px;
+  }
+
+  .creatorHeading {
+    height: 64px;
+    padding: 0 14px;
+  }
+
+  .creatorHeading h1 {
+    font-size: 17px;
+  }
+
+}
+.reuseNotice {
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
+  z-index: 3;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 12px;
+}
+.reuseNotice button { border: 0; background: transparent; color: var(--accent); cursor: pointer; font: inherit; }
